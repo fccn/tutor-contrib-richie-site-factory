@@ -34,7 +34,7 @@ config = {
     },
 }
 
-hooks.Filters.CLI_DO_INIT_TASKS.add_item((
+hooks.Filters.COMMANDS_INIT.add_item((
     "mysql",
     ("richie", "tasks", "richie-openedx", "init"),
 ))
