@@ -1,3 +1,6 @@
+{%- if patch("richie-production-env") %}
+{{ patch('richie-production-env') }}
+{%- else %}
 DJANGO_SETTINGS_MODULE=tutor
 DJANGO_CONFIGURATION=TutorProduction
 DJANGO_SECRET_KEY={{ RICHIE_SECRET_KEY}}
@@ -15,4 +18,4 @@ EDX_BASE_URL={% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }
 EDX_JS_BACKEND=openedx-hawthorn
 AUTHENTICATION_BASE_URL={% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}
 AUTHENTICATION_BACKEND=openedx-hawthorn
-{{ patch('richie-production-env') }}
+{%- endif %}
