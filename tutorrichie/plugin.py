@@ -34,10 +34,12 @@ config = {
     },
 }
 
-hooks.Filters.COMMANDS_INIT.add_item((
+hooks.Filters.CLI_DO_INIT_TASKS.add_item(
+    (
     "mysql",
-    ("richie", "tasks", "richie-openedx", "init"),
-))
+    """./manage.py cms shell -c "from richie.sync import sync_all_courses; sync_all_courses()" """
+    )
+)
 
 hooks.Filters.IMAGES_BUILD.add_item((
     "richie",

@@ -9,8 +9,8 @@ richie:
     - ../../data/richie/media:/data/media
   depends_on:
     - richie-permissions
+    - lms
     {% if RUN_ELASTICSEARCH %}- elasticsearch{% endif %}
-    {% if RUN_LMS %}- lms{% endif %}
     {% if RUN_MYSQL %}- mysql{% endif %}
 
 richie-permissions:
