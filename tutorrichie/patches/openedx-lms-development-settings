@@ -1,9 +1,0 @@
-# Richie (lms development)
-CORS_ORIGIN_WHITELIST.append("http://{{ RICHIE_HOST }}:8003")
-
-RICHIE_COURSE_HOOK = {
-  "secret": "{{ RICHIE_HOOK_SECRET }}",
-  "sync_endpoint": "http://richie:8000/api/v1.0/course-runs-sync/",
-  "create_endpoint": "http://richie:8000/api/v1.0/unesco-course-sync/",
-  "timeout": 3,
-}

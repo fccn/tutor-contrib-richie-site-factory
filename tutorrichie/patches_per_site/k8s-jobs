@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: richie-job
+  name: richie-{{site}}-job
   labels:
     app.kubernetes.io/component: job
 spec:
@@ -10,8 +10,8 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-        - name: richie
-          image: {{ RICHIE_DOCKER_IMAGE }}
+        - name: richie-{{site}}
+          image: {{ RICHIE_{{site}}_DOCKER_IMAGE }}
           envFrom:
             - secretRef:
-                name: richie-env
+                name: richie-{{site}}-env

@@ -1,0 +1,4 @@
+secretGenerator:
+- name: richie-{{site}}-env
+  envs:
+    - plugins/richie-{{site}}/apps/env.d/production
