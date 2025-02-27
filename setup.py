@@ -13,7 +13,7 @@ def load_readme():
 def load_about():
     about = {}
     with io.open(
-        os.path.join(HERE, "tutorrichie", "__about__.py"),
+        os.path.join(HERE, "tutorrichiesitefactory", "__about__.py"),
         "rt",
         encoding="utf-8",
     ) as f:
@@ -42,7 +42,7 @@ setup(
     install_requires=["tutor>=18.0.0,<19.0.0"],
     entry_points={
         "tutor.plugin.v1": [
-            "richie = tutorrichie.plugin"
+            "richie = tutorrichiesitefactory.plugin"
         ]
     },
     classifiers=[
