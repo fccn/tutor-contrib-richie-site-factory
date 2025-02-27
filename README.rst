@@ -1,7 +1,7 @@
-Richie plugin for `Tutor <https://docs.tutor.overhang.io>`__
+Richie site factory plugin for `Tutor <https://docs.tutor.overhang.io>`__
 ============================================================
 
-This is a plugin to integrate `Richie <https://richie.education/>`__, the learning portal CMS, with `Open edX <https://open.edx.org>`__. The integration takes the form of a `Tutor <https://docs.tutor.overhang.io>`__ plugin.
+This is a plugin to integrate multiple `Richie <https://richie.education/>`__ sites, the learning portal CMS, with `Open edX <https://open.edx.org>`__. The integration takes the form of a `Tutor <https://docs.tutor.overhang.io>`__ plugin.
 
 Dependencies
 ------------
@@ -101,7 +101,9 @@ Currently, it's maintained by NAU - FCCN.
 .. image:: https://www.fun-mooc.fr/static/richie/images/logo-en.svg
   :alt: France Université Numérique
   :target: https://fun-mooc.fr
+  :width: 200px
 
 .. image:: https://nau-prod-richie-nau-static-assets.rgw.nau.fccn.pt/static/richie/images/logo_nau_by_fccn_fct.3bc3aeaa7201.svg
   :alt: NAU by FCCN|FCT
   :target: https://www.nau.edu.pt
+  :width: 200px
