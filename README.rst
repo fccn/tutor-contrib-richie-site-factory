@@ -13,8 +13,8 @@ Installation
 
 ::
 
-    pip install tutor-contrib-richie
-    tutor plugins enable richie
+    pip install tutor-contrib-richie-site-factory
+    tutor plugins enable richie-site-factory
 
 Running the Richie plugin will require that you rebuild the "openedx" Docker image::
 
@@ -89,7 +89,7 @@ The Richie development server will be available at http://courses.local.overhang
 Troubleshooting
 ---------------
 
-Do you need help with this plugin? Get in touch with the maintainers of Richie by opening a GitHub issue: https://github.com/openfun/richie/issues/
+Do you need help with this plugin? Get in touch by opening a GitHub issue: https://github.com/fccn/tutor-contrib-richie-site-factory/issues/
 
 License
 -------

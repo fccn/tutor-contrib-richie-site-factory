@@ -25,16 +25,16 @@ ABOUT = load_about()
 
 
 setup(
-    name="tutor-contrib-richie",
+    name="tutor-contrib-richie-site-factory",
     version=ABOUT["__version__"],
-    url="https://github.com/openfun/tutor-contrib-richie",
+    url="https://github.com/fccn/tutor-contrib-richie-site-factory",
     project_urls={
-        "Code": "https://github.com/openfun/tutor-contrib-richie",
-        "Issue tracker": "https://github.com/openfun/tutor-contrib-richie/issues",
+        "Code": "https://github.com/openfun/tutor-contrib-richie-site-factory",
+        "Issue tracker": "https://github.com/openfun/tutor-contrib-richie-site-factory/issues",
     },
     license="AGPLv3",
     author="Open FUN (France Universite Numerique) & Overhang.IO",
-    description="Richie plugin for Tutor",
+    description="Richie site factory plugin for Tutor",
     long_description=load_readme(),
     packages=find_packages(exclude=["tests*", "contrib*"]),
     include_package_data=True,
@@ -42,7 +42,7 @@ setup(
     install_requires=["tutor>=18.0.0,<19.0.0"],
     entry_points={
         "tutor.plugin.v1": [
-            "richie = tutorrichiesitefactory.plugin"
+            "richie-site-factory = tutorrichiesitefactory.plugin"
         ]
     },
     classifiers=[
