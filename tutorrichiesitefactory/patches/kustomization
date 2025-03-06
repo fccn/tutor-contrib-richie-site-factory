@@ -1,0 +1,2 @@
+secretGenerator:
+{{ patch("richie-kubernetes-secret-generator") }}
