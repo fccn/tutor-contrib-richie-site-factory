@@ -33,7 +33,7 @@ setup(
         "Issue tracker": "https://github.com/fccn/tutor-contrib-richie-site-factory/issues",
     },
     license="AGPLv3",
-    author="Open FUN (France Universite Numerique) & Overhang.IO",
+    author="FCCN",
     description="Richie site factory plugin for Tutor",
     long_description=load_readme(),
     packages=find_packages(exclude=["tests*", "contrib*"]),
