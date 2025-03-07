@@ -1,13 +1,14 @@
 import io
 import os
 from setuptools import setup, find_packages
+from pathlib import Path
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 
 def load_readme():
-    with io.open(os.path.join(HERE, "README.rst"), "rt", encoding="utf8") as f:
-        return f.read()
+    this_directory = Path(__file__).parent
+    return (this_directory / "README.md").read_text()
 
 
 def load_about():
@@ -36,6 +37,7 @@ setup(
     author="FCCN",
     description="Richie site factory plugin for Tutor",
     long_description=load_readme(),
+    long_description_content_type='text/markdown',
     packages=find_packages(exclude=["tests*", "contrib*"]),
     include_package_data=True,
     python_requires=">=3.7",
