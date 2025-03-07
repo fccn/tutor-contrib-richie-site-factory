@@ -91,6 +91,13 @@ Troubleshooting
 
 Do you need help with this plugin? Get in touch by opening a GitHub issue: https://github.com/fccn/tutor-contrib-richie-site-factory/issues/
 
+Release
+-------
+
+1. Increase the version in __about.py file, eg. `18.0.0`.
+2. Open a PR and merge it.
+3. Then create a Git Tag with for the same version, `v18.0.0`.
+
 License
 -------
 
