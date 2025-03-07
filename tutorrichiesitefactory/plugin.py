@@ -60,6 +60,7 @@ config = {
             "RICHIE_VERSION": __version__,
             "RICHIE_SITES": [],
             "RICHIE_RELEASE_VERSION": "1.27.1",
+            "RICHIE_ADD_SECRET_GENERATOR": True,
         },
         **richie_site_default_variables,
     },
