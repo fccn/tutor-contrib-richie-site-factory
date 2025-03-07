@@ -29,8 +29,8 @@ setup(
     version=ABOUT["__version__"],
     url="https://github.com/fccn/tutor-contrib-richie-site-factory",
     project_urls={
-        "Code": "https://github.com/openfun/tutor-contrib-richie-site-factory",
-        "Issue tracker": "https://github.com/openfun/tutor-contrib-richie-site-factory/issues",
+        "Code": "https://github.com/fccn/tutor-contrib-richie-site-factory",
+        "Issue tracker": "https://github.com/fccn/tutor-contrib-richie-site-factory/issues",
     },
     license="AGPLv3",
     author="Open FUN (France Universite Numerique) & Overhang.IO",
