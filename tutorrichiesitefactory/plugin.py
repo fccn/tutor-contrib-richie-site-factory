@@ -58,19 +58,8 @@ config = {
     "defaults": {
         ** {
             "RICHIE_VERSION": __version__,
-            "RICHIE_SITES": ["catalog"],
+            "RICHIE_SITES": [],
             "RICHIE_RELEASE_VERSION": "1.27.1",
-            "RICHIE_MYSQL_USERNAME": "richie",
-
-            # to remove
-            "RICHIE_DJANGO_SETTINGS_MODULE": "settings.production",
-            "RICHIE_DJANGO_CONFIGURATION": "Production",
-            "RICHIE_AWS_DEFAULT_ACL": "public-read",
-            "RICHIE_AWS_S3_SIGNATURE_VERSION": "s3v4",
-            "RICHIE_AWS_REGION": "us-east-1",
-            "RICHIE_AWS_QUERYSTRING_AUTH": "false",
-
-            "RICHIE_HOST": "courses.{{ LMS_HOST }}",
         },
         **richie_site_default_variables,
     },
