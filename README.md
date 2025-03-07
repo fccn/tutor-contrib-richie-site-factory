@@ -119,7 +119,7 @@ git push origin v18.0.0
 
 ## License
 
-This software is licensed under the terms of the [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html). It was originally developed by Overhang.io with a sponsorship of [France Université Numérique](https://github.com/openfun). Currently, it's maintained by NAU - FCCN|FCT.
+This software is licensed under the terms of the [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html). It was originally developed by Overhang.io with a sponsorship of [France Université Numérique](https://github.com/openfun). Currently, it's maintained by [NAU - FCCN|FCT](https://github.com/fccn).
 
 <a href="https://www.fun-mooc.fr">
     <img alt="France Université Numérique" src="https://www.fun-mooc.fr/static/richie/images/logo-en.svg" width="200px" />
