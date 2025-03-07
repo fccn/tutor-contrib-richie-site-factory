@@ -96,7 +96,9 @@ Release
 
 1. Increase the version in __about.py file, eg. `18.0.0`.
 2. Open a PR and merge it.
-3. Then create a Git Tag with for the same version, `v18.0.0`.
+3. Then create a Git Tag with for the same version, `v18.0.0`::
+    git tag v18.0.0
+    git push origin v18.0.0
 
 License
 -------
