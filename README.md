@@ -58,18 +58,36 @@ This Tutor plugin comes with a few configuration settings:
 
 - `RICHIE_RELEASE_VERSION` (default: `"v1.27.1"`) - the default version of the demo site
 - `RICHIE_HOST` (default: `"courses.{{ LMS_HOST }}"`) - the marketing domain name at which the Open edX will be configured
+- `RICHIE_MYSQL_ROOT_USERNAME` - (default: `{{ MYSQL_ROOT_USERNAME }}`)
+- `RICHIE_MYSQL_ROOT_PASSWORD` - (default: `{{ MYSQL_ROOT_PASSWORD }}`)
 
 Other are per site, replace the {site} with the name of your site:
 
-- `RICHIE_{site}_MYSQL_DATABASE` (default: `"richie-{site}"`)
-- `RICHIE_{site}_MYSQL_USERNAME` (default: `"richie-{site}"`)
-- `RICHIE_{site}_HOST` (default: `"{site}.{{LMS_HOST}}"`)
-- `RICHIE_{site}_DOCKER_IMAGE` the fun-mooc demo instance image
-- `RICHIE_{site}_BUCKET_NAME` (default: `"richie-{site}-uploads"`)
-- `RICHIE_{site}_MEDIA_BUCKET_NAME` (default: `"richie-{site}-media"`)
-- `RICHIE_{site}_ELASTICSEARCH_INDICES_PREFIX` (default: `"richie-{site}"`)
+- `RICHIE_{site}_HOST` - (default: `{site}.{{ LMS_HOST }}`)
+- `RICHIE_{site}_DOCKER_IMAGE` - (default: `{{ DOCKER_REGISTRY }}fundocker/richie-demo:{{ RICHIE_RELEASE_VERSION }}`)
+- `RICHIE_{site}_BUCKET_NAME` - (default: `richie-{site}-uploads`)
+- `RICHIE_{site}_MEDIA_BUCKET_NAME` - (default: `richie-{site}-media`)
+- `RICHIE_{site}_ELASTICSEARCH_INDICES_PREFIX` - (default: `richie-{site}`)
+- `RICHIE_{site}_CACHE_DEFAULT_BACKEND` - (default: `base.cache.RedisCacheWithFallback`)
+- `RICHIE_{site}_CACHE_DEFAULT_LOCATION` - (default: `redis://{{ REDIS_HOST }}:{{ REDIS_PORT }}/2`)
+- `RICHIE_{site}_CACHE_DEFAULT_OPTIONS` - (default: `{}`)
+- `RICHIE_{site}_DJANGO_SETTINGS_MODULE` - (default: `{site}.settings`)
+- `RICHIE_{site}_DJANGO_CONFIGURATION` - (default: `Production`)
+- `RICHIE_{site}_DB_ENGINE` - (default: `django.db.backends.mysql`)
+- `RICHIE_{site}_DB_HOST` - (default: `{{ MYSQL_HOST }}`)
+- `RICHIE_{site}_DB_NAME` - (default: `richie_{site}`)
+- `RICHIE_{site}_DB_PORT` - (default: `{{ MYSQL_PORT }}`)
+- `RICHIE_{site}_DB_USER` - (default: `richie_{site}`)
+- `RICHIE_{site}_MYSQL_INIT` - (default: `true`)
+- `RICHIE_{site}_MYSQL_ROOT_USERNAME` - (default: `{{ RICHIE_MYSQL_ROOT_USERNAME }}`)
+- `RICHIE_{site}_MYSQL_ROOT_PASSWORD` - (default: `{{ RICHIE_MYSQL_ROOT_PASSWORD }}`)
+- `RICHIE_{site}_ELASTICSEARCH_HOST` - (default: `{{ ELASTICSEARCH_HOST }}`)
+- `RICHIE_{site}_EDX_BASE_URL` - (default: `https://{{ LMS_HOST }}`)
+- `RICHIE_{site}_EDX_JS_BACKEND` - (default: `openedx-hawthorn`)
+- `RICHIE_{site}_AUTHENTICATION_BASE_URL` - (default: `https://{{ LMS_HOST }}`)
+- `RICHIE_{site}_AUTHENTICATION_BACKEND` - (default: `openedx-hawthorn`)
 
-If you need to completely customize the production environment, you can use the Tutor patch richie-{{site}}-production-env.
+If you need to completely customize the production environment, you can use the Tutor patch `richie-{{site}}-production-env`.
 
 These defaults should be enough for most users. To modify any one of them, run:
 
