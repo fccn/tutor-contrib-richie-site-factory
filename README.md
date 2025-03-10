@@ -126,13 +126,13 @@ Do you need help with this plugin? Get in touch by opening a GitHub issue: https
 
 ## Release
 
-1. Increase the version in __about.py file, eg. 18.0.0.
+1. Increase the version in __about.py file, eg. 18.1.0.
 2. Open a PR and merge it.
-3. Then create a Git Tag with for the same version, v18.0.0
+3. Then create a Git Tag with for the same version, v18.1.0
 
 ```bash
-git tag v18.0.0
-git push origin v18.0.0
+git tag v18.1.0
+git push origin v18.1.0
 ```
 
 ## License
