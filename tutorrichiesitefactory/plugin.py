@@ -22,6 +22,8 @@ for site in richie_sites:
             f"RICHIE_{site}_COURSE_RUN_SYNC_SECRETS": "{{ 12|random_string }}",
             f"RICHIE_{site}_AWS_ACCESS_KEY_ID": "{{ 20|random_string }}",
             f"RICHIE_{site}_AWS_SECRET_ACCESS_KEY": "{{ 40|random_string }}",
+            f"RICHIE_{site}_OAUTH2_CLIENT_ID": "{{ 20|random_string }}",
+            f"RICHIE_{site}_OAUTH2_CLIENT_SECRET": "{{ 20|random_string }}",
         },
     }
 
@@ -178,7 +180,18 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
     list(config.get("overrides", {}).items())
 )
 
+def set_init_script_per_site(site: str):
+    path = os.path.join(templates, "richie", "tasks", "lms", "init")
+
+    with open(path, "r") as init_file:
+        data = init_file.read()
+        data = data.replace("{{site}}", site)
+        with open(f"env/plugins/richie/templates/richie-{site}/tasks/lms/init", "w") as init_file_write:
+            init_file_write.write(data)
+
 for site in richie_sites:
+    set_init_script_per_site(site)
+
     hooks.Filters.CLI_DO_INIT_TASKS.add_items([
         (
             "mysql",
@@ -187,6 +200,10 @@ for site in richie_sites:
         (
             f"richie-{site}",
             env.read_template_file(f"richie-{site}", "tasks", "richie", "init")
+        ),
+        (
+            f"richie-{site}",
+            env.read_template_file(f"richie-{site}", "tasks", "lms", "init")
         ),
     ])
 
