@@ -1,0 +1,7 @@
+./manage.py lms create_dot_application \
+    --grant-type authorization-code \
+    --redirect-uris "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ RICHIE_{{site}}_HOST }}/oauth-authorized/openedxsso" \
+    --client-id {{ RICHIE_{{site}}_OAUTH2_CLIENT_ID }} \
+    --client-secret {{ RICHIE_{{site}}_OAUTH2_CLIENT_SECRET }} \
+    --scopes "user_id" \
+    sso-richie-site-factory richie-site-factory
