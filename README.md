@@ -86,6 +86,7 @@ Other are per site, replace the {site} with the name of your site:
 - `RICHIE_{site}_EDX_JS_BACKEND` - (default: `openedx-hawthorn`)
 - `RICHIE_{site}_AUTHENTICATION_BASE_URL` - (default: `https://{{ LMS_HOST }}`)
 - `RICHIE_{site}_AUTHENTICATION_BACKEND` - (default: `openedx-hawthorn`)
+- `RICHIE_{site}_OAUTH2_CLIENT_AUTHORIZED_PATH` - (default: `None`)
 
 If you need to completely customize the production environment, you can use the Tutor patch `richie-{{site}}-production-env`.
 

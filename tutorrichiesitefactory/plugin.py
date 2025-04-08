@@ -6,7 +6,8 @@ from tutor import hooks, config as tutor_config
 from tutor import env
 from .__about__ import __version__
 
-templates = pkg_resources.resource_filename("tutorrichiesitefactory", "templates")
+templates = pkg_resources.resource_filename(
+    "tutorrichiesitefactory", "templates")
 
 tutor_root_config = tutor_config.get_user(os.environ["TUTOR_ROOT"])
 
@@ -23,6 +24,7 @@ for site in richie_sites:
             f"RICHIE_{site}_AWS_ACCESS_KEY_ID": "{{ 20|random_string }}",
             f"RICHIE_{site}_AWS_SECRET_ACCESS_KEY": "{{ 40|random_string }}",
             f"RICHIE_{site}_OAUTH2_CLIENT_ID": "{{ 20|random_string }}",
+            f"RICHIE_{site}_OAUTH2_CLIENT_ID_DEV": "{{ 20|random_string }}",
             f"RICHIE_{site}_OAUTH2_CLIENT_SECRET": "{{ 20|random_string }}",
         },
     }
@@ -55,6 +57,8 @@ for site in richie_sites:
             f"RICHIE_{site}_EDX_JS_BACKEND": "openedx-hawthorn",
             f"RICHIE_{site}_AUTHENTICATION_BASE_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}",
             f"RICHIE_{site}_AUTHENTICATION_BACKEND": "openedx-hawthorn",
+            # "/oauth2/authorized/",
+            f"RICHIE_{site}_OAUTH2_CLIENT_AUTHORIZED_PATH": None,
         },
     }
 
@@ -99,7 +103,8 @@ for site in richie_sites:
         ),
         recursive=True,
     ):
-        template_file_rel_dest = os.path.relpath(template_file, templates + "/richie")
+        template_file_rel_dest = os.path.relpath(
+            template_file, templates + "/richie")
         if os.path.isdir(template_file):
             os.makedirs(
                 f"env/plugins/richie/templates/richie-{site}/{template_file_rel_dest}",
@@ -142,7 +147,8 @@ for site in richie_sites:
     os.makedirs(f"env/plugins/richie/patches/richie-{site}", exist_ok=True)
     for path in glob(
         os.path.join(
-            pkg_resources.resource_filename("tutorrichiesitefactory", "patches_per_site"),
+            pkg_resources.resource_filename(
+                "tutorrichiesitefactory", "patches_per_site"),
             "*",
         )
     ):
@@ -180,14 +186,19 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
     list(config.get("overrides", {}).items())
 )
 
-def set_init_script_per_site(site: str):
-    path = os.path.join(templates, "richie", "tasks", "lms", "init")
 
-    with open(path, "r") as init_file:
-        data = init_file.read()
-        data = data.replace("{{site}}", site)
-        with open(f"env/plugins/richie/templates/richie-{site}/tasks/lms/init", "w") as init_file_write:
-            init_file_write.write(data)
+def set_init_script_per_site(site: str):
+    """
+    Set the init script for the given site.
+    """
+    init_file_path = os.path.join(templates, "richie", "tasks", "lms", "init")
+
+    with open(init_file_path, "r", encoding="utf-8") as init_file:
+        init_file_data = init_file.read()
+        init_file_data = init_file_data.replace("{{site}}", site)
+        with open(f"env/plugins/richie/templates/richie-{site}/tasks/lms/init", "w", encoding="utf-8") as init_file_write:
+            init_file_write.write(init_file_data)
+
 
 for site in richie_sites:
     set_init_script_per_site(site)
@@ -202,17 +213,18 @@ for site in richie_sites:
             env.read_template_file(f"richie-{site}", "tasks", "richie", "init")
         ),
         (
-            f"richie-{site}",
+            "lms",
             env.read_template_file(f"richie-{site}", "tasks", "lms", "init")
         ),
     ])
+
 
 def register_cli_do_commands(site: str):
     """
     Register the CLI do commands for the given site.
     """
 
-    @click.command(name=f"richie-init-{site}")
+    @click.command(name=f"richie-{site}-init")
     def richie_init() -> list[tuple[str, str]]:
         """
         Job to create a minimum site structure required by Richie.
