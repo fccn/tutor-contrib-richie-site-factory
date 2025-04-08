@@ -239,5 +239,38 @@ def register_cli_do_commands(site: str):
         ]
     hooks.Filters.CLI_DO_COMMANDS.add_item(richie_init)
 
+    @click.command(name=f"richie-{site}-create-demo-site")
+    def create_demo_site() -> list[tuple[str, str]]:
+        """
+        Job to create a demo site.
+        """
+        return [
+            (
+                f"richie-{site}",
+                f"echo 'Initialize richie-{site} with a minimum site structure...' && "
+                # "python manage.py flush --force && "
+                "python manage.py create_demo_site --force && "
+                "python manage.py bootstrap_elasticsearch && "
+                "echo 'Done!';",
+            ),
+        ]
+    hooks.Filters.CLI_DO_COMMANDS.add_item(create_demo_site)
+
+    @click.command(name=f"richie-{site}-bootstrap-elasticsearch")
+    def bootstrap_elasticsearch() -> list[tuple[str, str]]:
+        """
+        Job to reindex Richie site.
+        """
+        return [
+            (
+                f"richie-{site}",
+                f"echo 'Initialize richie-{site} with a minimum site structure...' && "
+                "python manage.py bootstrap_elasticsearch && "
+                "echo 'Done!';",
+            ),
+        ]
+    hooks.Filters.CLI_DO_COMMANDS.add_item(bootstrap_elasticsearch)
+
+
 for site in richie_sites:
     register_cli_do_commands(site)
