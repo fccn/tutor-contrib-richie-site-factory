@@ -45,7 +45,7 @@ for site in richie_sites:
             f"RICHIE_{site}_DB_NAME": f"richie_{site}",
             f"RICHIE_{site}_DB_PORT": "{{ MYSQL_PORT }}",
             f"RICHIE_{site}_DB_USER": f"richie_{site}",
-            f"RICHIE_{site}_MYSQL_INIT": "true",
+            f"RICHIE_{site}_MYSQL_INIT": True,
             f"RICHIE_{site}_MYSQL_ROOT_USERNAME": "{{ RICHIE_MYSQL_ROOT_USERNAME }}",
             f"RICHIE_{site}_MYSQL_ROOT_PASSWORD": "{{ RICHIE_MYSQL_ROOT_PASSWORD }}",
             f"RICHIE_{site}_ELASTICSEARCH_HOST": "{{ ELASTICSEARCH_HOST }}",
