@@ -1,13 +1,15 @@
-from glob import glob
 import os
-import pkg_resources
+from glob import glob
+
 import click
-from tutor import hooks, config as tutor_config
-from tutor import env
+import importlib_resources
+from tutor import config as tutor_config
+from tutor import env, hooks
+
 from .__about__ import __version__
 
-templates = pkg_resources.resource_filename(
-    "tutorrichiesitefactory", "templates")
+templates = str(importlib_resources.files(
+    "tutorrichiesitefactory") / "templates")
 
 tutor_root_config = tutor_config.get_user(os.environ["TUTOR_ROOT"])
 
@@ -133,7 +135,7 @@ for site in richie_sites:
 # Load patches from files
 for path in glob(
     os.path.join(
-        pkg_resources.resource_filename("tutorrichiesitefactory", "patches"),
+        importlib_resources.files("tutorrichiesitefactory") / "patches",
         "*",
     )
 ):
@@ -147,8 +149,8 @@ for site in richie_sites:
     os.makedirs(f"env/plugins/richie/patches/richie-{site}", exist_ok=True)
     for path in glob(
         os.path.join(
-            pkg_resources.resource_filename(
-                "tutorrichiesitefactory", "patches_per_site"),
+            importlib_resources.files(
+                "tutorrichiesitefactory") / "patches_per_site",
             "*",
         )
     ):
