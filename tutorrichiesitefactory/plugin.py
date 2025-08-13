@@ -113,10 +113,10 @@ for site in richie_sites:
                 exist_ok=True,
             )
         if os.path.isfile(template_file):
-            with open(template_file, "r") as f:
+            with open(template_file, "r", encoding="utf-8") as f:
                 data = f.read()
                 data = data.replace("{{site}}", site)
-                with open(f"env/plugins/richie/templates/richie-{site}/{template_file_rel_dest}", "w") as f:
+                with open(f"env/plugins/richie/templates/richie-{site}/{template_file_rel_dest}", "w", encoding="utf-8") as f:
                     f.write(data)
 
 # Add the "templates" folder as a template root
@@ -154,11 +154,11 @@ for site in richie_sites:
             "*",
         )
     ):
-        with open(path, "r") as patch_file:
+        with open(path, "r", encoding="utf-8") as patch_file:
             data = patch_file.read()
             data = data.replace("{{site}}", site)
             patch_name = os.path.basename(path)
-            with open(f"env/plugins/richie/patches/richie-{site}/{patch_name}", "w") as patch_file_write:
+            with open(f"env/plugins/richie/patches/richie-{site}/{patch_name}", "w", encoding="utf-8") as patch_file_write:
                 patch_file_write.write(data)
 
 # Register the patches per site
