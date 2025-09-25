@@ -41,7 +41,7 @@ setup(
     packages=find_packages(exclude=["tests*", "contrib*"]),
     include_package_data=True,
     python_requires=">=3.7",
-    install_requires=["tutor>=18.0.0,<19.0.0"],
+    install_requires=["tutor>=20.0.0,<21.0.0"],
     entry_points={
         "tutor.plugin.v1": [
             "richie-site-factory = tutorrichiesitefactory.plugin"
@@ -55,5 +55,6 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
     ],
 )
